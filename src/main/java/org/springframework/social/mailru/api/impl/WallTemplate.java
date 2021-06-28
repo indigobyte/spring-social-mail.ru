@@ -1,6 +1,6 @@
 package org.springframework.social.mailru.api.impl;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.social.mailru.api.WallOperations;
 import org.springframework.social.support.URIBuilder;
 import org.springframework.web.client.RestTemplate;

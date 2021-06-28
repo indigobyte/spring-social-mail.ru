@@ -6,10 +6,23 @@ Spring social plugin for Mail.Ru
 
 ### How to create new version of plugin
 
-Maven repository is located in folder repository. To produce new version, change version in pom.xml, then run command:
+Maven repository is located in folder repository. To produce new version:
+- Change version in `pom.xml` file.
+- Run command:
+
 
     mvn clean deploy
-    
+- It will fail with message
+
+
+    Failed to execute goal com.github.github:site-maven-plugin:0.12:site (default) on project spring-social-mailru: Error creating blob: Not Found (404) -> [Help 1]
+- . It's OK. Now go to `target\mvn-repo` folder and delete it.
+- Create new empty folder `target\mvn-repo`.
+- Clone repository into `target\mvn-repo` folder.
+- Go to that folder and checkout `mvn-repo` branch.
+- Now go back to repository root and run `mvn deploy` (without `clean`!). It will fail with the same message again. It's OK. 
+- Go to `target\mvn-repo` folder, add, commit, and push changes into `mvn-repo` branch.
+
 You might need to change maven settings: `.m2/settings.xml`:
 
     <?xml version="1.0" encoding="UTF-8"?>
@@ -30,8 +43,9 @@ To create local installation run command:
     mvn clean compile package install:install-file
     -DgroupId=org.springframework.social
     -DartifactId=spring-social-mailru
-    -Dversion=1.1.1
-    -Dfile=target/spring-social-mailru-1.1.1.jar
+    -Dversion=1.1.2
+    -Dfile=target/spring-social-mailru-1.1.2.jar
+    -Dsources=target/spring-social-mailru-1.1.2-sources.jar
     -Dpackaging=jar
     -DgeneratePom=true
     -DlocalRepositoryPath=mvn-repo/spring-social-mailru
