@@ -42,20 +42,20 @@ public class UsersTemplate extends AbstractMailruOperations implements UsersOper
         if (!profiles.isEmpty()) {
             Map<String, Object> profilesMap = profiles.get(0);
             MailruProfile profile = new MailruProfile(
-                    (String)profilesMap.get("uid"),
-                    (String)profilesMap.get("first_name"),
-                    (String)profilesMap.get("last_name"),
-                    (String)profilesMap.get("email"),
-                    (String)profilesMap.get("link"),
-                    (Integer)profilesMap.get("sex")
+                    (String) profilesMap.get("uid"),
+                    (String) profilesMap.get("first_name"),
+                    (String) profilesMap.get("last_name"),
+                    (String) profilesMap.get("email"),
+                    (String) profilesMap.get("link"),
+                    (Integer) profilesMap.get("sex")
             );
 
             if (profilesMap.containsKey("pic")) {
-                profile.setPhoto((String)profilesMap.get("pic"));
+                profile.setPhoto((String) profilesMap.get("pic"));
             }
 
             if (profilesMap.containsKey("birthday")) {
-                profile.setBirthday((String)profilesMap.get("birthday"));
+                profile.setBirthday((String) profilesMap.get("birthday"));
             }
 
             return profile;
